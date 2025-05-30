@@ -1,7 +1,7 @@
 import logging
 from logging import getLogger
 
-from template_python.loggers import get_logger
+from template_ml.loggers import get_logger
 
 logger = getLogger(__name__)
 
