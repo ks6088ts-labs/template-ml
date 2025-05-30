@@ -3,8 +3,11 @@ name = "template-ml"
 version = "0.0.1"
 description = "A GitHub template repository for Python"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "==3.12.*"
 dependencies = [
+    "mediapipe>=0.10.21",
+    "opencv-contrib-python>=4.11.0.86",
+    "opencv-python>=4.11.0.86",
     "pydantic-settings>=2.9.1",
     "python-dotenv>=1.1.0",
     "typer>=0.16.0",
@@ -52,3 +55,6 @@ show_missing = true
 
 [tool.ty]
 environment = { python-version = "3.10" }
+
+[tool.ty.rules]
+unresolved-attribute = "ignore" # Ignore unresolved attributes in classes
