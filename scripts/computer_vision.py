@@ -5,6 +5,7 @@ import cv2 as cv
 import typer
 from dotenv import load_dotenv
 
+from template_ml.detectors.pose import PoseDetector
 from template_ml.loggers import get_logger
 from template_ml.settings import Settings
 
@@ -36,6 +37,14 @@ def show(
             help="Path to the output video file",
         ),
     ] = "output_video.mp4",
+    landmark_id: Annotated[
+        int,
+        typer.Option(
+            "--landmark-id",
+            "-l",
+            help="ID of the landmark to draw a circle on",
+        ),
+    ] = 19,
     verbose: Annotated[
         bool,
         typer.Option("--verbose", "-v", help="Enable verbose output"),
@@ -61,12 +70,37 @@ def show(
         frameSize=(int(video_capture.get(cv.CAP_PROP_FRAME_WIDTH)), int(video_capture.get(cv.CAP_PROP_FRAME_HEIGHT))),
     )
 
+    # Initialize the detector
+    detector = PoseDetector()
+
     while True:
         # Read a frame from the video capture
         ret, frame = video_capture.read()
         if not ret:
             logger.info("End of video stream")
             break
+
+        # Our operations on the frame come here
+        landmarks = detector.find_pose(frame)
+
+        # Draw the landmarks
+        if landmarks is not None and landmarks.pose_landmarks is not None:
+            detector.draw_landmarks(frame, landmarks)
+
+            for id, landmark in enumerate(landmarks.pose_landmarks.landmark):
+                logger.debug(f"{id}, {landmark.x}, {landmark.y}, {landmark.z}")
+                # Draw a circle on a specific landmark
+                if id == landmark_id:
+                    cv.circle(
+                        img=frame,
+                        center=(
+                            int(landmark.x * video_capture.get(cv.CAP_PROP_FRAME_WIDTH)),
+                            int(landmark.y * video_capture.get(cv.CAP_PROP_FRAME_HEIGHT)),
+                        ),  # noqa
+                        radius=7,
+                        color=(255, 0, 0),
+                        thickness=cv.LINE_4,
+                    )
 
         # Display the frame
         cv.imshow("Video", frame)
