@@ -5,9 +5,24 @@ description = "A GitHub template repository for Python"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "dash>=3.2.0",
+    "datasets>=4.1.1",
+    "dspy>=3.0.3",
+    "huggingface-hub>=0.35.1",
+    "jupyterlab>=4.4.9",
+    "langchain[openai]>=0.3.27",
+    "mlflow>=3.4.0",
+    "pandas>=2.3.2",
+    "plotly>=6.3.0",
+    "polars>=1.33.1",
     "pydantic-settings>=2.9.1",
     "python-dotenv>=1.1.0",
+    "scikit-learn>=1.7.2",
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
+    "transformers>=4.56.2",
     "typer>=0.16.0",
+    "yellowbrick>=1.5",
 ]
 
 [dependency-groups]
