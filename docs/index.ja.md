@@ -1,3 +1,3 @@
-# template-python
+# template-ml
 
 このリポジトリは、Python プロジェクトのためのテンプレートリポジトリです。

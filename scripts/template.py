@@ -9,7 +9,7 @@ from template_python.settings import Settings
 
 app = typer.Typer(
     add_completion=False,
-    help="template-python CLI",
+    help="template-ml CLI",
 )
 
 logger = get_logger(__name__)
