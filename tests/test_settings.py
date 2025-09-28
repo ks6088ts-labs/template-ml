@@ -2,8 +2,8 @@ from logging import DEBUG
 
 from dotenv import load_dotenv
 
-from template_python.loggers import get_logger
-from template_python.settings import Settings
+from template_ml.loggers import get_logger
+from template_ml.settings import Settings
 
 logger = get_logger(__name__)
 
