@@ -1,0 +1,37 @@
+name: test
+
+on:
+  push:
+    branches:
+      - "main"
+      - "feature/**"
+      - "copilot/**"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform:
+          - "ubuntu-latest"
+        python-version:
+          - "3.13"
+    runs-on: ${{ matrix.platform }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up uv with caching enabled
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run CI tests
+        shell: bash
+        run: |
+          make ci-test
+          make ci-test-docs
