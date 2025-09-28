@@ -12,7 +12,10 @@ make hf-login
 make hf-whoami
 
 # Play with transformers
-uv run python scripts/transformers_playground.py --help
+uv run python scripts/playground_transformers.py --help
+
+# Play with Dash
+uv run python scripts/playground_dash.py --help
 ```
 
 ## References
