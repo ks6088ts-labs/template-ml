@@ -2,14 +2,20 @@
 
 This repository is a template repository for Python projects.
 
-## References
+## Getting Started
 
 ```shell
-uv add \
-    jupyterlab plotly dash yellowbrick \
-    huggingface_hub datasets mlflow pandas polars torch torchvision scikit-learn \
-    transformers "langchain[openai]" dspy
+# Login to Hugging Face
+make hf-login
+
+# Confirm login
+make hf-whoami
+
+# Play with transformers
+uv run python scripts/transformers_playground.py --help
 ```
+
+## References
 
 ### Jupyter & Visualization
 

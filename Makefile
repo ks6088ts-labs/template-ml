@@ -107,3 +107,15 @@ docs-serve: ## serve documentation
 
 .PHONY: ci-test-docs
 ci-test-docs: install-deps-docs docs ## run CI test for documentation
+
+# ---
+# Project
+# ---
+
+.PHONY: hf-whoami
+hf-whoami: ## show Hugging Face whoami
+	@uv run hf auth whoami
+
+.PHONY: hf-login
+hf-login: ## log in to Hugging Face
+	@uv run hf auth login
