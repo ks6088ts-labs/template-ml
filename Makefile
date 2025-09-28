@@ -114,8 +114,12 @@ ci-test-docs: install-deps-docs docs ## run CI test for documentation
 
 .PHONY: hf-whoami
 hf-whoami: ## show Hugging Face whoami
-	@uv run hf auth whoami
+	uv run hf auth whoami
 
 .PHONY: hf-login
 hf-login: ## log in to Hugging Face
-	@uv run hf auth login
+	uv run hf auth login
+
+.PHONY: mlflow-server
+mlflow-server: ## run MLflow server
+	uv run mlflow server --host 0.0.0.0 --port 8080

@@ -16,6 +16,10 @@ uv run python scripts/playground_transformers.py --help
 
 # Play with Dash
 uv run python scripts/playground_dash.py --help
+
+# Play with MLflow
+make mlflow-server # to start mlflow server
+uv run python scripts/playground_mlflow.py --help
 ```
 
 ## References
