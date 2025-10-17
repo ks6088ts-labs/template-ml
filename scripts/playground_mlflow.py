@@ -7,7 +7,7 @@ import typer
 
 # Import packages
 from dotenv import load_dotenv
-from mlflow.models import infer_signature
+from mlflow.models import infer_signature  # type: ignore
 from sklearn import datasets
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score

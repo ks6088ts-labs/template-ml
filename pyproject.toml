@@ -68,3 +68,6 @@ show_missing = true
 
 [tool.ty]
 environment = { python-version = "3.10" }
+
+[tool.ty.rules]
+possibly-missing-attribute = "ignore"
