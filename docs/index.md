@@ -46,3 +46,10 @@ uv run python scripts/playground_mlflow.py --help
 - [Transformers](https://huggingface.co/docs/transformers/main/en/installation)
 - [LangChain](https://python.langchain.com/docs/introduction/)
 - [DSPy](https://dspy.ai/)
+
+### PyTorch
+
+- [PyTorch GitHub](https://github.com/pytorch/pytorch)
+- [PyTorch Installation](https://pytorch.org/get-started/locally/)
+- [PyTorch Quickstart](https://docs.pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html)
+  - [PyTorch Tutorials](https://github.com/pytorch/tutorials)
