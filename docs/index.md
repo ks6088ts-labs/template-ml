@@ -31,6 +31,10 @@ uv run python scripts/playground_mlflow.py --help
 - [Dash](https://dash.plotly.com/installation)
 - [Yellowbrick](https://www.scikit-yb.org/en/latest/quickstart.html#installation)
 
+### marimo
+
+- [marimo](https://docs.marimo.io/)
+
 ### Data Science & Machine Learning
 
 - [Huggingface Hub](https://huggingface.co/docs/huggingface_hub/main/en/quick-start)
