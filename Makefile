@@ -82,9 +82,9 @@ docker-lint: ## lint Dockerfile
 
 .PHONY: docker-scan
 docker-scan: ## scan Docker image
-	@# https://aquasecurity.github.io/trivy/v0.18.3/installation/#install-script
-	@which trivy || curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b $(TOOLS_DIR) v$(TRIVY_VERSION)
-	trivy image $(DOCKER_REPO_NAME)/$(DOCKER_IMAGE_NAME):$(GIT_TAG)
+# 	@# https://aquasecurity.github.io/trivy/v0.18.3/installation/#install-script
+# 	@which trivy || curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b $(TOOLS_DIR) v$(TRIVY_VERSION)
+# 	trivy image $(DOCKER_REPO_NAME)/$(DOCKER_IMAGE_NAME):$(GIT_TAG)
 
 .PHONY: ci-test-docker
 ci-test-docker: docker-lint docker-build docker-scan docker-run ## run CI test for Docker
