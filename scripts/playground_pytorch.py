@@ -190,7 +190,8 @@ def train(
     )
 
     # Get device
-    device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+    _accel = torch.accelerator.current_accelerator()
+    device = _accel.type if _accel is not None else "cpu"
     print(f"Using {device} device")
 
     # Create model
@@ -285,7 +286,8 @@ def evaluate(
     )
 
     # Get device
-    device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+    _accel = torch.accelerator.current_accelerator()
+    device = _accel.type if _accel is not None else "cpu"
     print(f"Using {device} device")
 
     # Load model
@@ -347,7 +349,8 @@ def predict(
     )
 
     # Get device
-    device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
+    _accel = torch.accelerator.current_accelerator()
+    device = _accel.type if _accel is not None else "cpu"
     print(f"Using {device} device")
 
     # Load model
